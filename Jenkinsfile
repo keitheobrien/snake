@@ -1,5 +1,5 @@
 node ('master'){  
-    def app
+    //def app
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
        checkout scm
@@ -15,12 +15,9 @@ node ('master'){
         sh 'echo post-to-docker'
      /* docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
             app.push("latest")
-        			}
+        			} */
          }
-    stage('SECURITY-IMAGE-SCANNER'){
-        build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
-    }
-  */
+      
     
     stage('Pull-image-server') {
     /*
@@ -28,9 +25,5 @@ node ('master'){
          sh "docker-compose up -d"	*/
       }
     
-  /*  stage('DAST')
-        {
-        build 'SECURITY-DAST-OWASP_ZAP'
-        }
- */
+  
 }
