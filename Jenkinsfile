@@ -11,6 +11,19 @@ node ('master'){
          * docker build on the command line 
         app = docker.build("amrit96/snake") */
     }
+     stage('Scan with SNYK') {
+        sh 'echo scan-with-snyk'
+     /* docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+            app.push("latest")
+        			} */
+         }
+     stage('Scan with OWASP ZAP') {
+        sh 'echo scan-with-snyk'
+     /* docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+            app.push("latest")
+        			} */
+         }
+    
     stage('Post-to-dockerhub') {
         sh 'echo post-to-docker'
      /* docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
